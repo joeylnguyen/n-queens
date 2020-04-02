@@ -184,12 +184,34 @@
     hasMajorDiagonalConflictAt: function(majorDiagonalColumnIndexAtFirstRow) {
       return false; // fixme
     },
-
+    // board.hasAnyMajorDiagonalConflicts();
     // test if any major diagonals on this board contain conflicts
     hasAnyMajorDiagonalConflicts: function() {
-      return false; // fixme
-    },
+      //create diagonalOccurence;
+      let diagonalOccurence = {};
+      // loop through the rows
+      for (var r = 0; r < this.rows().length; r++) {
 
+        // loop through each column
+        for (var c = 0; c < this.rows().length; c ++) {
+          // for each item
+          // create a variable index that stores the value of invoking _getFirstRowColumnIndexForMajorDiagonalOn (with inputs current row, current column)
+          let diagonalIndex = this._getFirstRowColumnIndexForMajorDiagonalOn(r, c);
+          // if array[current row, current column] = 1 <--- "if that box has a pawn"
+          if (this.rows()[r][c] === 1) {
+            // check if diagonalOccurence[index] doesn't exist
+            if (!diagonalOccurence[diagonalIndex]) {
+              //set diagonalOccurence[index] to 1
+              diagonalOccurence[diagonalIndex] = 1;
+            } else {
+              // else, return true
+              return true;
+            }
+          }
+        }
+      }
+      return false;
+    },
 
 
     // Minor Diagonals - go from top-right to bottom-left
@@ -202,7 +224,30 @@
 
     // test if any minor diagonals on this board contain conflicts
     hasAnyMinorDiagonalConflicts: function() {
-      return false; // fixme
+      //create diagonalOccurence;
+      let diagonalOccurence = {};
+      // loop through the rows
+      for (var r = 0; r < this.rows().length; r++) {
+
+        // loop through each column
+        for (var c = 0; c < this.rows().length; c ++) {
+          // for each item
+          // create a variable index that stores the value of invoking _getFirstRowColumnIndexForMinorDiagonalOn (with inputs current row, current column)
+          let diagonalIndex = this._getFirstRowColumnIndexForMinorDiagonalOn(r, c);
+          // if array[current row, current column] = 1 <--- "if that box has a pawn"
+          if (this.rows()[r][c] === 1) {
+            // check if diagonalOccurence[index] doesn't exist
+            if (!diagonalOccurence[diagonalIndex]) {
+              //set diagonalOccurence[index] to 1
+              diagonalOccurence[diagonalIndex] = 1;
+            } else {
+              // else, return true
+              return true;
+            }
+          }
+        }
+      }
+      return false;
     }
 
     /*--------------------  End of Helper Functions  ---------------------*/
