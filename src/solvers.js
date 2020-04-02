@@ -15,10 +15,80 @@
 
 
 
-window.findNRooksSolution = function(n) {
-  var solution = undefined; //fixme
+window.findNRooksSolution = function(n) { // n = 2
+  var solution = board.rows(); //fixme
+  // Create a new board = Board({n: n})
+  // Iterate through rows
+  // Iterate through col
+
+
+
+  // Loop by n rooks
+  // Loop through rows
+  // breakLoop = false
+  // Loop through columns
+  // If the square has a value of 0
+  // Set the value of the square to 1
+  // Set breakLoop = true
+  // Break loop
+  // If breakLoop is true
+  // break row loop
+
+  //____________________________________________________________________________
+
+  //findNRooksSolution(2)
+  //define newBoard = new Board(n);
+  //define holderArray
+
+  //define recursive(newBoard)
+  // does newBoard have any pawns?
+  //loop through each coordinate
+  //if coordinate = 1, yes
+  //else , no
+
+
+  // if not,
+  //for each square 1, 2, 3, 4,
+  //create branchBoard = new Board(n)
+  //put pawn on that square
+  //reassign newBoard to branchBoard
+  //run recursive function with input newBoard
+
+  //if yes,
+  //for each square available after the LATEST occurence of a pawn
+  //for each square available ----> 2, 3, 4
+  //create copy of newBoard called babyBoard
+  //put pawn on that square (now there's two pawns on the board) IF no conflict
+  //if number of pawns = n:
+  //push that complete matrix in a holderArray
+  //else
+  // reassign newBoard = babyBoard
+  //run recursive function with input babyBoard
+
+
+
+
+
+
+  // for each rook (two rooks)
+  //   for each square+counter: <--- start from the first square again
+  //     put rook on the square
+  //     if rowConflicts = false
+  //     put rook there
+  //     else
+  //     continue
+
+
+
+
+  //place the first rook at coordinates 0,0
+  //for the second rook, rotate the placement of it until hasAnyRooksConflict = false;
+  //place rook there
+  //return solution matrix
+
 
   console.log('Single solution for ' + n + ' rooks:', JSON.stringify(solution));
+  // Returns a matrix [[1,0], [0,1]]
   return solution;
 };
 

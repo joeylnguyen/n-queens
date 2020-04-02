@@ -182,7 +182,12 @@
     //
     // test if a specific major diagonal on this board contains a conflict
     hasMajorDiagonalConflictAt: function(majorDiagonalColumnIndexAtFirstRow) {
-      return false; // fixme
+      // input row and column as arguments for majorDiagonalColumnIndexAtFirstRow ---> e.c 0 or -1
+      //check every other coordinate and get index
+      //if there are any queens on a coordinate with same index
+      //outputs if there is a conflict at that coordinate
+      // return false; // fixme
+
     },
     // board.hasAnyMajorDiagonalConflicts();
     // test if any major diagonals on this board contain conflicts
