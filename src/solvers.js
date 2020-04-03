@@ -94,7 +94,36 @@ window.findNRooksSolution = function(n) { // n = 2
 
 // return the number of nxn chessboards that exist, with n rooks placed such that none of them can attack each other
 window.countNRooksSolutions = function(n) {
-  var solutionCount = undefined; //fixme
+  var solutionCount = 0; //fixme
+
+  var board = new Board({n: n});
+
+  // Recursive function
+  var findSolutions = function (row) {
+    // Base case
+    // if (row === n) {
+    if (row === n) {
+      //   if matrix passes test, increment solutionCount
+      solutionCount++;
+      return;
+    }
+    // Recursion case
+    // Loop through the 'columns' (amount of rows) (n)
+    for (var i = 0; i < n; i++) {
+      // Place a piece on the current square
+      board.togglePiece(row, i);
+      // Check if placing the piece caused any conflicts in the board
+      if (!board.hasAnyRooksConflicts()) {
+        // If it's safe (no conflicts)
+        // Call the recursion function passing in the next row as the argument
+        findSolutions(row + 1);
+      }
+      board.togglePiece(row, i);
+      // Toggle piece to reset the board to a state right before we placed piece down
+    }
+  };
+
+  findSolutions(0);
 
   console.log('Number of solutions for ' + n + ' rooks:', solutionCount);
   return solutionCount;
@@ -110,7 +139,36 @@ window.findNQueensSolution = function(n) {
 
 // return the number of nxn chessboards that exist, with n queens placed such that none of them can attack each other
 window.countNQueensSolutions = function(n) {
-  var solutionCount = undefined; //fixme
+  var solutionCount = 0; //fixme
+
+  var board = new Board({n: n});
+
+  // Recursive function
+  var findSolutions = function (row) {
+    // Base case
+    // if (row === n) {
+    if (row === n) {
+      //   if matrix passes test, increment solutionCount
+      solutionCount++;
+      return;
+    }
+    // Recursion case
+    // Loop through the 'columns' (amount of rows) (n)
+    for (var i = 0; i < n; i++) {
+      // Place a piece on the current square
+      board.togglePiece(row, i);
+      // Check if placing the piece caused any conflicts in the board
+      if (!board.hasAnyQueensConflicts()) {
+        // If it's safe (no conflicts)
+        // Call the recursion function passing in the next row as the argument
+        findSolutions(row + 1);
+      }
+      board.togglePiece(row, i);
+      // Toggle piece to reset the board to a state right before we placed piece down
+    }
+  };
+
+  findSolutions(0);
 
   console.log('Number of solutions for ' + n + ' queens:', solutionCount);
   return solutionCount;
